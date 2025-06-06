@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('HBuild') {
+        stage('Build') {
             agent{
                 docker{
                     image 'node:18-alpine'
@@ -19,6 +19,11 @@ pipeline {
                     ls -la
                 '''
             }
+        }
+        stage('Test'){
+            sh '''
+                echo "Test stage"
+            '''
         }
     }
 }
